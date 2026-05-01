@@ -1,0 +1,16 @@
+# Claude Code settings (per-utente / per-progetto, non da committare in un repo skill)
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
