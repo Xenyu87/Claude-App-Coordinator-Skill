@@ -48,3 +48,7 @@ Vedi [references/release-notes.md](references/release-notes.md). Versione corren
 ## Lingua
 
 La skill opera in italiano per default (cambia in base alla lingua dell'utente).
+
+## License
+
+MIT — vedi [LICENSE](LICENSE).
