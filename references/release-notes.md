@@ -37,6 +37,7 @@ Note di rilascio sul comportamento osservabile della skill. Pensate per chi la u
 - checklist copiabile in `references/self-improvement.md` (pattern Anthropic: `- [ ]` step da spuntare).
 - riferimento al pattern "test su istanza fresca" (Claude A → Claude B) nella self-improvement.
 - check di conformità frontmatter al validator: `name` (<=64 char, regex lowercase-hyphens, no reserved words) e `description` (<=1024 char).
+- cartella `evaluations/` con `scenarios.md`: 6 scenari di comportamento atteso in italiano semplice, da usare come riferimento per verificare manualmente che modifiche future non rompano il comportamento.
 ### Cambiato
 - costanti del validator (`SKILL_MAX_LINES`, `REFERENCE_MAX_LINES`, `DESCRIPTION_MAX_CHARS`) ora documentate con commento esplicativo (anti-pattern voodoo constants).
 

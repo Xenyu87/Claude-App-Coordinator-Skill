@@ -33,6 +33,10 @@ Claude Code rileva automaticamente le skill installate e le attiva in base alla 
 - Coordina sub-agent solo quando il rischio o il tempo risparmiato giustifica il costo in token
 - Gestisce handoff multi-agente tramite `AI_HANDOFF.md`, `AI_CONTEXT.md`, `AI_DECISIONS.md`, `AI_AGENT_LOG.md`, `AI_STRUCTURE.md`
 
+## Scenari di test
+
+In [evaluations/scenarios.md](evaluations/scenarios.md) trovi 6 scenari di comportamento atteso, scritti in italiano semplice. Servono come riferimento per verificare manualmente che modifiche future non rompano il comportamento della skill.
+
 ## Validator
 
 ```bash

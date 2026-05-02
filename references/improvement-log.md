@@ -40,6 +40,7 @@ Diario sintetico delle modifiche alla skill. Una riga per modifica.
 - 2026-05-02 — references/self-improvement.md — aggiunto pattern "test su istanza fresca" (Claude A → Claude B) — best-practice ufficiale di iterative skill development
 - 2026-05-02 — scripts/validate_skill.py — documentate le costanti SKILL_MAX_LINES, REFERENCE_MAX_LINES, DESCRIPTION_MAX_CHARS — anti-pattern voodoo constants (Ousterhout)
 - 2026-05-02 — scripts/validate_skill.py — aggiunti check conformità frontmatter Anthropic (name <=64 char, regex `[a-z0-9-]+`, no reserved word; description <=1024 char) — protegge le regole ufficiali
+- 2026-05-02 — evaluations/scenarios.md — aggiunti 6 scenari di comportamento atteso in italiano semplice — best-practice "build evaluations first" adattata a utente non programmatore (no JSON, no infra di test)
 
 ## Regole
 
