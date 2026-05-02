@@ -43,6 +43,11 @@ Diario sintetico delle modifiche alla skill. Una riga per modifica.
 - 2026-05-02 — evaluations/scenarios.md — aggiunti 6 scenari di comportamento atteso in italiano semplice — best-practice "build evaluations first" adattata a utente non programmatore (no JSON, no infra di test)
 - 2026-05-02 — SKILL.md §3, references/specialist-agents.md, evaluations/scenarios.md — selezione modello sub-agent automatizzata via tabella decisionale haiku/sonnet/opus; main-agent solo segnalato all'utente — l'utente vuole switch automatico, ma è fattibile solo per i sub-agent
 - 2026-05-02 — references/agent-handoff.md, SKILL.md §10, evaluations/scenarios.md — pattern di comunicazione tra sub-agent dello stesso coordinator (router via coordinator, file `AI_HANDOFF.md`, `SendMessage` per riprendere) — l'utente vuole sub-agent che si scambino info; non è possibile direttamente, lo gestisce il coordinator
+- 2026-05-02 — recipes/ — cartella nuova con README + 5 ricette (landing-page, crud-with-auth, data-dashboard, content-site, bot) — riempie il gap "cookbook per non programmer", ogni ricetta è scheletro modulare non boilerplate fisso
+- 2026-05-02 — references/default-stacks.md — 3 stack di default (web full-stack, sito contenuti, backend long-running) — evita di chiedere "quale framework" ad ogni nuova app
+- 2026-05-02 — references/deploy-paths.md + assets/scripts/deploy-{vercel,netlify,railway}.sh — percorsi e script di deploy concreti — coloma il gap "come metto l'app online"
+- 2026-05-02 — references/visual-first-testing.md — protocollo URL/azione/atteso/segnalazioni codificato — utente non programmer non legge stack trace
+- 2026-05-02 — SKILL.md §12 — aggiunti Step 0 (riconosci ricetta) / Step 2 (deploy presto) / Step 3 (test visivo) — workflow nuova app ora copre l'intero ciclo "idea → online"
 
 ## Regole
 

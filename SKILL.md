@@ -104,7 +104,9 @@ Mappa attivazione reference:
 - gate decisionali → `references/decision-risk-gates.md`
 - ruoli → `references/role-profiles.md`, `references/specialist-agents.md`, `references/qa-test-agent.md`
 - handoff → `references/agent-handoff.md`, `references/cross-agent-handoff-template.md`
-- creazione app → `references/app-creation-blueprint.md`, `references/project-context-template.md`, `references/structure-memory-template.md`, `references/second-brain-template.md`, `references/agent-autolog-template.md`
+- creazione app → `references/app-creation-blueprint.md`, `references/default-stacks.md`, `references/project-context-template.md`, `references/structure-memory-template.md`, `references/second-brain-template.md`, `references/agent-autolog-template.md`; ricette pronte in `recipes/`
+- deploy app → `references/deploy-paths.md` + script in `assets/scripts/deploy-*.sh`
+- testing visivo (UI) → `references/visual-first-testing.md`
 - manutenzione → `references/maintenance-compaction.md`, `references/compression-pass.md`, `references/skill-sync.md`, `references/improvement-log.md`, `references/release-notes.md`
 - sicurezza coordinatore → `references/coordinator-safety.md`
 - self-improvement → `references/self-improvement.md`
@@ -206,11 +208,17 @@ Per UI a rischio medio/alto valuta uno screenshot o smoke check (es. Playwright)
 
 ## 12. Creazione di una nuova app
 
-Scaffolding minimo:
+**Step 0 — riconosci se c'è una ricetta**: prima di chiedere stack, verifica se il task corrisponde a una ricetta in `recipes/` (landing page, CRUD con auth, dashboard dati, sito di contenuti, bot). Se sì, usa quella come base e adatta. Se no, scegli da `references/default-stacks.md` (Stack A/B/C) invece di chiedere all'utente "quale framework preferisci".
+
+**Step 1 — scaffolding minimo**:
 
 - struttura iniziale + `AI_CONTEXT.md`, `AI_STRUCTURE.md`, `AGENTS.md`, `CLAUDE.md`
 - niente file extra "per il futuro"
 - niente test scaffolding se l'utente non li ha chiesti
+
+**Step 2 — deploy da subito**: la prima volta che l'app gira in locale, configura anche il deploy (Vercel/Netlify/Railway secondo la ricetta o lo stack). Vedi `references/deploy-paths.md` e gli script in `assets/scripts/`. Mettere online presto è più importante che fare features.
+
+**Step 3 — test visivo**: dopo ogni cambio UI, chiudi con il pattern di `references/visual-first-testing.md` (URL, cosa fare, cosa vedere, cosa segnalare).
 
 Per i file `AI_*.md` e per `AGENTS.md` / `CLAUDE.md`, copia i file pronti da `assets/templates/`:
 

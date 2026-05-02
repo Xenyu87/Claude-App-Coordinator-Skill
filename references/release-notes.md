@@ -16,21 +16,22 @@ Note di rilascio sul comportamento osservabile della skill. Pensate per chi la u
 - ...
 ```
 
-## Esempio iniziale
-
-```
 ## v0.1.0 — 2026-04-29
 ### Aggiunto
-- skill `cost-aware-app-coordinator` con 19 reference.
-- validator `scripts/validate_skill.py`.
-- supporto a file condivisi `AI_*.md` per handoff multi-agente.
+- prima release: skill con 19 reference, validator, file `AI_*.md` per handoff multi-agente.
+
+## v0.5.0 — 2026-05-02
+### Aggiunto
+- `recipes/` con 5 ricette pronte (landing-page, crud-with-auth, data-dashboard, content-site, bot): scheletro modulare con stack + struttura + primi passi + deploy + costi + punti di personalizzazione.
+- `references/default-stacks.md`: 3 stack default (A: Next.js+Supabase+Vercel, B: Astro+Vercel, C: Node+Railway) per evitare di chiedere "quale framework" ad ogni nuova app.
+- `references/deploy-paths.md` + `assets/scripts/deploy-{vercel,netlify,railway}.sh`: percorsi concreti per mettere l'app online, con costi.
+- `references/visual-first-testing.md`: protocollo "URL / cosa fare / cosa vedere / cosa segnalare" per utente non programmer.
+- scenario 8 in `evaluations/scenarios.md`.
 ### Cambiato
-- (n/a)
-### Rimosso
-- (n/a)
+- SKILL.md §12: workflow nuova app esteso con Step 0 (ricetta) / Step 2 (deploy presto) / Step 3 (test visivo). Copre il ciclo idea → online.
+- mappa progressive loading allineata.
 ### Note di migrazione
-- nessuna: prima release.
-```
+- niente. Per nuove app la skill propone subito stack + ricetta senza interrogare l'utente sulle scelte tecniche.
 
 ## v0.4.1 — 2026-05-02
 ### Aggiunto

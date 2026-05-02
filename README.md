@@ -8,9 +8,13 @@ Versione gemella per Codex: [Xenyu87/codex-app-coordinator-skill](https://github
 
 ```
 SKILL.md                    # core sempre caricato
-references/                 # 22 reference, caricati on-demand (progressive disclosure)
-assets/templates/           # 7 file copiabili pronti (AI_*.md, AGENTS.md, CLAUDE.md)
+references/                 # 25 reference, caricati on-demand (progressive disclosure)
+recipes/                    # 5 ricette di app pronte all'uso (scheletro modulare)
+assets/templates/           # 7 file copiabili (AI_*.md, AGENTS.md, CLAUDE.md)
+assets/scripts/             # script di deploy (Vercel, Netlify, Railway)
 scripts/validate_skill.py   # validator (frontmatter, soglie righe, coerenza)
+scripts/sync_skill.py       # sync sorgente → skill installata
+evaluations/scenarios.md    # comportamenti attesi documentati
 ```
 
 ## Installazione

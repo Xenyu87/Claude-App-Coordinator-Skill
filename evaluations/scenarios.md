@@ -125,7 +125,32 @@ Quando proponi una modifica alla skill, chiedi: *"verifica che gli scenari di te
 
 ---
 
-## Scenario 8 — Output corto
+## Scenario 8 — Uso di una ricetta + deploy
+
+**Tu dici:** "voglio fare una landing page per il mio progetto, con un form contatti che mi mandi le mail"
+
+**La skill deve:**
+- riconoscere il pattern → aprire `recipes/landing-page.md`
+- proporre lo stack della ricetta (Next.js + Vercel + Resend) **senza chiedermi** "quale framework vuoi"
+- creare lo scaffolding minimo descritto nella ricetta
+- darmi i 5 primi passi concreti in ordine
+- al primo "gira in locale", chiedermi se voglio **già** configurare il deploy su Vercel (script in `assets/scripts/deploy-vercel.sh`)
+- dopo modifiche UI, chiudere con il protocollo di `visual-first-testing.md`: URL, cosa fare, cosa vedere
+
+**Tu dici (variante)**: "ho una richiesta strana, voglio un'app per gestire le partite a scacchi della mia famiglia"
+
+**La skill deve:**
+- non trovare ricetta esatta → fall-back a `default-stacks.md` Stack A (CRUD pattern)
+- scegliere lo stack di default **dichiarandolo** ("uso Next.js + Supabase, ti spiego perché in due righe") invece di farmi 3 domande tecniche
+
+**Bandiera rossa:**
+- se mi chiede "quale framework preferisci" prima di proporre uno stack di default
+- se finisce di costruire l'app e poi non mi parla mai di come metterla online
+- se dopo una modifica UI dice solo "fatto" senza dirmi cosa controllare in browser
+
+---
+
+## Scenario 9 — Output corto
 
 **Tu dici:** "aggiungi un punto e virgola alla fine della riga 12"
 
