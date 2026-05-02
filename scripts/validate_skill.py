@@ -15,8 +15,15 @@ SKILL_FILE = ROOT / "SKILL.md"
 REFERENCES_DIR = ROOT / "references"
 ASSETS_DIR = ROOT / "assets"
 
+# SKILL.md cap: la doc ufficiale Anthropic raccomanda <500 righe per il body;
+# 350 lascia margine per future aggiunte e tiene tutta la skill scorrevole.
 SKILL_MAX_LINES = 350
+# Reference cap: garantisce che ogni reference sia leggibile in un colpo
+# d'occhio e che oltre questa soglia la sezione vada spostata o splittata
+# (raccomandazione: TOC se >100 righe).
 REFERENCE_MAX_LINES = 120
+# Limite ufficiale Anthropic per il campo description del frontmatter.
+DESCRIPTION_MAX_CHARS = 1024
 
 REQUIRED_FRONTMATTER_KEYS = {"name", "description"}
 REQUIRED_SECTIONS = [
@@ -65,6 +72,20 @@ def parse_frontmatter(text: str) -> tuple[dict[str, str], list[str]]:
     missing = REQUIRED_FRONTMATTER_KEYS - data.keys()
     if missing:
         err(issues, f"frontmatter manca le chiavi: {sorted(missing)}")
+
+    name = data.get("name", "")
+    if name:
+        if len(name) > 64:
+            err(issues, f"frontmatter name supera 64 caratteri: {len(name)}")
+        if not re.fullmatch(r"[a-z0-9-]+", name):
+            err(issues, f"frontmatter name non conforme (solo a-z, 0-9, hyphens): {name!r}")
+        if "anthropic" in name or "claude" in name:
+            err(issues, f"frontmatter name contiene una reserved word: {name!r}")
+
+    description = data.get("description", "")
+    if description and len(description) > DESCRIPTION_MAX_CHARS:
+        err(issues, f"frontmatter description supera {DESCRIPTION_MAX_CHARS} caratteri: {len(description)}")
+
     return data, issues
 
 

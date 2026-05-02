@@ -36,6 +36,10 @@ Diario sintetico delle modifiche alla skill. Una riga per modifica.
 - 2026-05-02 — references/{project-context,structure-memory,second-brain,cross-agent-handoff,agent-autolog}-template.md — rimossi blocchi markdown embedded duplicati con assets/templates/ — single source of truth, riduce contesto al caricamento
 - 2026-05-02 — scripts/sync_skill.py — nuovo script cross-platform per sync sorgente → installata — sostituisce Copy-Item PowerShell manuale, riduce drift
 - 2026-05-02 — README.md, .gitignore — aggiunti alla root in vista del repo pubblico — README descrive struttura/installazione, gitignore protegge settings.local.json
+- 2026-05-02 — references/self-improvement.md — checklist copiabile in formato `- [ ]` — pattern raccomandato dalla doc Anthropic per workflow lunghi (Claude può copiare e spuntare)
+- 2026-05-02 — references/self-improvement.md — aggiunto pattern "test su istanza fresca" (Claude A → Claude B) — best-practice ufficiale di iterative skill development
+- 2026-05-02 — scripts/validate_skill.py — documentate le costanti SKILL_MAX_LINES, REFERENCE_MAX_LINES, DESCRIPTION_MAX_CHARS — anti-pattern voodoo constants (Ousterhout)
+- 2026-05-02 — scripts/validate_skill.py — aggiunti check conformità frontmatter Anthropic (name <=64 char, regex `[a-z0-9-]+`, no reserved word; description <=1024 char) — protegge le regole ufficiali
 
 ## Regole
 

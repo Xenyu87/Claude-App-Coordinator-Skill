@@ -32,6 +32,14 @@ Note di rilascio sul comportamento osservabile della skill. Pensate per chi la u
 - nessuna: prima release.
 ```
 
+## v0.3.1 — 2026-05-02
+### Aggiunto
+- checklist copiabile in `references/self-improvement.md` (pattern Anthropic: `- [ ]` step da spuntare).
+- riferimento al pattern "test su istanza fresca" (Claude A → Claude B) nella self-improvement.
+- check di conformità frontmatter al validator: `name` (<=64 char, regex lowercase-hyphens, no reserved words) e `description` (<=1024 char).
+### Cambiato
+- costanti del validator (`SKILL_MAX_LINES`, `REFERENCE_MAX_LINES`, `DESCRIPTION_MAX_CHARS`) ora documentate con commento esplicativo (anti-pattern voodoo constants).
+
 ## v0.3.0 — 2026-05-02
 ### Aggiunto
 - cartella `assets/templates/` con 7 file copiabili (`AI_CONTEXT.md`, `AI_STRUCTURE.md`, `AI_DECISIONS.md`, `AI_HANDOFF.md`, `AI_AGENT_LOG.md`, `AGENTS.md`, `CLAUDE.md`).

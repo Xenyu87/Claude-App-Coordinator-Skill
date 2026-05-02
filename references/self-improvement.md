@@ -12,14 +12,21 @@ Categoria: **miglioramento skill**. Budget default: Bilanciato.
 
 ## Step
 
-1. Esegui `python scripts/validate_skill.py` come baseline. Annota errori e warning.
-2. Leggi `SKILL.md` e ogni reference solo una volta.
-3. Identifica gap usando la checklist sotto. Non inventare migliorie estetiche.
-4. Proponi all'utente **solo** se la modifica è ampia (nuova sezione di SKILL.md, rimozione reference, cambio default budget). Per fix mirati, procedi.
-5. Applica modifiche minime.
-6. Aggiorna `improvement-log.md` (riga per cambio).
-7. Aggiorna `release-notes.md` se cambia il comportamento osservabile.
-8. Esegui di nuovo il validator. Non chiudere finché non è verde.
+Copia questa checklist e spunta ogni step prima di passare al successivo:
+
+```
+Self-improvement progress:
+- [ ] 1. Validator baseline: errori e warning annotati
+- [ ] 2. SKILL.md e reference letti una volta sola
+- [ ] 3. Gap identificati con la checklist sotto
+- [ ] 4. Modifiche ampie proposte all'utente; fix mirati applicati
+- [ ] 5. Modifiche minime applicate
+- [ ] 6. improvement-log.md aggiornato (una riga per cambio)
+- [ ] 7. release-notes.md aggiornato se il comportamento cambia
+- [ ] 8. Validator finale verde
+```
+
+Comandi: `python scripts/validate_skill.py` (step 1 e 8).
 
 ## Checklist di gap
 
@@ -59,3 +66,7 @@ Verifica: python scripts/validate_skill.py
 ```
 
 Se hai aggiornato `release-notes.md`, cita la nuova versione.
+
+## Test su istanza fresca
+
+Le modifiche alla skill vanno testate con una nuova chat (instance fresh che carica la versione aggiornata). Pattern raccomandato dalla doc Anthropic: lavora con un'istanza A per modificare la skill, poi verifica con un'istanza B che la usi su task reali. Se B fallisce o ignora una regola, ritorna ad A con l'osservazione concreta.
