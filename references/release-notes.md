@@ -32,6 +32,15 @@ Note di rilascio sul comportamento osservabile della skill. Pensate per chi la u
 - nessuna: prima release.
 ```
 
+## v0.4.0 — 2026-05-02
+### Aggiunto
+- selezione automatica del modello per i sub-agent: tabella decisionale haiku/sonnet/opus in SKILL.md §3, ripresa in `references/specialist-agents.md`. Quando Claude lancia un `Agent`, il parametro `model` viene scelto in base al tipo di task (ricerca → haiku, review/implementazione → sonnet, audit/security/architettura → opus).
+- scenario 6 in `evaluations/scenarios.md` per coprire il nuovo comportamento.
+### Cambiato
+- §3 SKILL.md ora distingue esplicitamente main agent (modello fisso, scelto dall'utente; la skill può solo segnalare di passare a un modello più grande) da sub-agent (modello impostato automaticamente dalla skill).
+### Note di migrazione
+- comportamento osservabile: i sub-agent ora partono con il modello giusto senza domande, riducendo il costo dei task leggeri (ricerche, lookup) e aumentando l'affidabilità di quelli rischiosi (audit auth).
+
 ## v0.3.1 — 2026-05-02
 ### Aggiunto
 - checklist copiabile in `references/self-improvement.md` (pattern Anthropic: `- [ ]` step da spuntare).

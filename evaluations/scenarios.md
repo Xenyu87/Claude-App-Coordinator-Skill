@@ -83,7 +83,27 @@ Quando proponi una modifica alla skill, chiedi: *"verifica che gli scenari di te
 
 ---
 
-## Scenario 6 — Output corto
+## Scenario 6 — Scelta automatica del modello per sub-agent
+
+**Tu dici:** "fai una ricerca in tutto il progetto per trovare ogni uso della funzione `formatDate`"
+
+**La skill deve:**
+- decidere che serve un sub-agent (ricerca cross-file ampia)
+- lanciare il tool `Agent` con `subagent_type: Explore` **e** `model: haiku` (ricerca = task leggero, modello piccolo)
+- **NON** passare `model: opus` per una ricerca semplice (sarebbe spreco)
+
+**Tu dici:** "audita la sicurezza dell'autenticazione su tutti i file di auth"
+
+**La skill deve:**
+- lanciare un sub-agent (audit ampio = scope cross-file + rischio alto)
+- passare `model: opus` (security/auth = task ad alto rischio, serve modello grande)
+- **NON** scegliere haiku/sonnet per un audit di sicurezza
+
+**Bandiera rossa:** se vedo un `Agent` lanciato senza il parametro `model`, oppure con un modello incoerente con il tipo di task (es. opus per una ricerca banale, haiku per un audit auth), la regola §3 non sta funzionando.
+
+---
+
+## Scenario 7 — Output corto
 
 **Tu dici:** "aggiungi un punto e virgola alla fine della riga 12"
 

@@ -40,6 +40,16 @@ Il subagent parte freddo. Il prompt deve essere autocontenuto:
 
 Niente "fai del tuo meglio". Niente "in base ai risultati, implementa X" — la sintesi resta al main agent.
 
+## Modello del subagent
+
+Imposta sempre il parametro `model` del tool `Agent` in base al tipo di task. Vedi tabella in SKILL.md §3:
+
+- `haiku` — ricerca cross-file, summary, lookup
+- `sonnet` — code review, implementazione singolo file, debug 2-3 file
+- `opus` — architettura, refactor cross-modulo, security/auth, audit ampi
+
+In dubbio scegli il più piccolo. Se il main agent è già Opus e il sub-task è leggero, `haiku` riduce il costo senza perdere qualità.
+
 ## Background vs foreground
 
 - Foreground: quando ti serve il risultato per il prossimo passo

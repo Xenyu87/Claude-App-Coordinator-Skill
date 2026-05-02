@@ -41,6 +41,7 @@ Diario sintetico delle modifiche alla skill. Una riga per modifica.
 - 2026-05-02 — scripts/validate_skill.py — documentate le costanti SKILL_MAX_LINES, REFERENCE_MAX_LINES, DESCRIPTION_MAX_CHARS — anti-pattern voodoo constants (Ousterhout)
 - 2026-05-02 — scripts/validate_skill.py — aggiunti check conformità frontmatter Anthropic (name <=64 char, regex `[a-z0-9-]+`, no reserved word; description <=1024 char) — protegge le regole ufficiali
 - 2026-05-02 — evaluations/scenarios.md — aggiunti 6 scenari di comportamento atteso in italiano semplice — best-practice "build evaluations first" adattata a utente non programmatore (no JSON, no infra di test)
+- 2026-05-02 — SKILL.md §3, references/specialist-agents.md, evaluations/scenarios.md — selezione modello sub-agent automatizzata via tabella decisionale haiku/sonnet/opus; main-agent solo segnalato all'utente — l'utente vuole switch automatico, ma è fattibile solo per i sub-agent
 
 ## Regole
 

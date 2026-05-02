@@ -54,13 +54,29 @@ Dettagli: `references/budget-modes.md`.
 
 ## 3. Selezione del modello
 
-Usa il modello più piccolo capace di chiudere il task. Aumenta solo se rischio, ambiguità o profondità lo giustificano.
+Usa il modello più piccolo capace di chiudere il task. Aumenta solo se rischio, ambiguità o profondità lo giustificano. Costo: `haiku` < `sonnet` < `opus`. Velocità: l'inverso.
 
-- **Haiku / piccolo**: discovery, riassunti, formattazione, lavoro meccanico a basso rischio
-- **Sonnet / default**: implementazione normale, debug, review di pochi file
-- **Opus / forte**: refactor multi-file, migrazioni, architettura, security/auth, audit ampi
+### Main agent (chat con l'utente)
 
-Quando spawni un sub-agent, imposta un override di modello solo se il task lo richiede; altrimenti lascia ereditare. Non dichiarare il modello scelto se non quando una scelta di costo/rischio è visibile all'utente.
+Il modello del main agent è scelto dall'utente all'avvio della sessione e non può essere cambiato dalla skill durante la chat. Se durante un task il rischio sale (es. l'utente entra in auth, migrazioni, security) e il main agent è su un modello troppo piccolo, **segnalalo**:
+
+```
+Suggerimento: questo task tocca <auth/migrazioni/...>. Per ridurre il rischio, passa a Opus prima di procedere.
+```
+
+Non assumere il cambio; lascia decidere all'utente.
+
+### Sub-agent (tool `Agent` con `subagent_type`)
+
+Imposta automaticamente il parametro `model` del tool `Agent` in base al tipo di task delegato. Tabella decisionale:
+
+| Tipo di task del sub-agent | `model` da passare |
+| --- | --- |
+| ricerca cross-file (`Explore`), summary, riformulazione, formato, lookup mirato | `haiku` |
+| code review (`code-reviewer`), implementazione su singolo file, debug 2-3 file, doc-writer su sezione | `sonnet` |
+| architettura (`architect`), `Plan` per task ampi, refactor cross-modulo, security/auth, audit ampio, migrazione dati | `opus` |
+
+In dubbio tra due livelli, scegli il più piccolo. Non dichiarare il modello scelto in chat: è un dettaglio interno. Solo se il main agent è già su Opus e il sub-task è banale, considera di passare `haiku` per ridurre il costo.
 
 ## 4. Lettura iniziale del contesto
 
