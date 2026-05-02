@@ -103,7 +103,29 @@ Quando proponi una modifica alla skill, chiedi: *"verifica che gli scenari di te
 
 ---
 
-## Scenario 7 — Output corto
+## Scenario 7 — Comunicazione tra sub-agent
+
+**Tu dici:** "trova tutti gli usi di `formatDate` nel progetto e poi suggerisci come refattorizzarli in modo coerente"
+
+**La skill deve:**
+- riconoscere che servono **due passaggi**: prima ricerca, poi proposta di refactor
+- lanciare il primo sub-agent (`Explore` con `model: haiku`) per la ricerca
+- ricevere il risultato (lista file e righe)
+- lanciare il secondo sub-agent (`general-purpose` o `architect` con `model: sonnet`/`opus`) **passando nel suo prompt iniziale solo le info rilevanti del primo**, non l'intero output
+- coordinare i risultati e rispondere all'utente
+
+**Variante con file condiviso (task lungo):**
+- Se il refactor richiede più passaggi nel tempo, il primo sub-agent scrive lo stato in `AI_HANDOFF.md`
+- Il secondo sub-agent inizia con "leggi `AI_HANDOFF.md` come primo passo"
+
+**Bandiera rossa:**
+- se vedo i due sub-agent lanciati in parallelo senza che il coordinator filtri tra loro
+- se il prompt del secondo sub-agent contiene 200 righe copiate dal primo (mancato filtro)
+- se un sub-agent prova a "lanciare" un altro sub-agent (la regia resta al coordinator)
+
+---
+
+## Scenario 8 — Output corto
 
 **Tu dici:** "aggiungi un punto e virgola alla fine della riga 12"
 

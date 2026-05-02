@@ -170,7 +170,10 @@ Profili e dettagli: `references/role-profiles.md`, `references/specialist-agents
 
 ## 10. Handoff tra agenti
 
-Il progetto può essere lavorato sia da Claude Code sia da altri agenti AI. La comunicazione passa per file condivisi nella repo, non per memoria nascosta.
+Due livelli:
+
+- **tra agenti diversi** (Claude Code, altri agenti AI, sviluppatori umani che entrano in sessioni separate): comunicazione tramite file condivisi nella repo, non memoria nascosta.
+- **tra sub-agent dello stesso coordinator** (lanciati da `Agent` nella stessa sessione): non si parlano direttamente, il coordinator fa da router. Per task brevi: passa il risultato di A nel prompt di B. Per task lunghi: usa `AI_HANDOFF.md` come bacheca condivisa. Per riprendere un sub-agent attivo: `SendMessage` con il suo ID.
 
 File condivisi:
 

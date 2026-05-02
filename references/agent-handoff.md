@@ -54,3 +54,33 @@ Lascia `AI_HANDOFF.md` in stato pulito:
 
 Se `AI_HANDOFF.md` contraddice il codice: il codice vince. Aggiorna handoff.
 Se `AI_DECISIONS.md` contraddice una richiesta utente nuova: chiedi se la decisione precedente va revocata, e marcala revocata.
+
+## Comunicazione tra sub-agent (stesso coordinator)
+
+I sub-agent **non si parlano direttamente**. Il coordinator fa da router. Tre pattern:
+
+**A — Handoff via coordinator (default per task brevi):**
+
+1. Lancia sub-agent A con un prompt autocontenuto.
+2. Ricevi il suo risultato.
+3. Lancia sub-agent B passando nel prompt **solo le parti utili** del risultato di A (non tutto).
+
+Niente chat libera fra A e B; il coordinator filtra cosa serve a chi.
+
+**B — Handoff via file (per task lunghi, multi-turno, o quando A e B operano in tempi diversi):**
+
+1. Sub-agent A scrive lo stato in `AI_HANDOFF.md` (volatile) e/o promuove decisioni durevoli in `AI_DECISIONS.md`.
+2. Sub-agent B riceve nel prompt l'istruzione "leggi `AI_HANDOFF.md` come primo passo".
+3. B parte già informato senza che il coordinator debba ripetere tutto.
+
+Usa questo modo quando il payload è grosso o cambia spesso, o quando vuoi tracciabilità nel repo.
+
+**C — Riprendere un sub-agent attivo (`SendMessage`):**
+
+Se un sub-agent è già stato lanciato in questa sessione e serve continuare, usa `SendMessage` con il suo ID. Riprende con il contesto già caricato (più efficiente di un nuovo `Agent`).
+
+**Anti-pattern:**
+
+- A → scrive 200 righe → B legge tutto: filtra prima.
+- Loop di handoff infinito: il coordinator decide quando si chiude.
+- Far chiedere a un sub-agent di lanciarne un altro: la regia resta al coordinator.

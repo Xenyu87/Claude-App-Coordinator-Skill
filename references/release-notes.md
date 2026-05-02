@@ -32,6 +32,15 @@ Note di rilascio sul comportamento osservabile della skill. Pensate per chi la u
 - nessuna: prima release.
 ```
 
+## v0.4.1 — 2026-05-02
+### Aggiunto
+- pattern di comunicazione tra sub-agent dello stesso coordinator in `references/agent-handoff.md`: handoff via coordinator (default), via `AI_HANDOFF.md` (task lunghi), `SendMessage` (riprendere agent attivo).
+- scenario 7 in `evaluations/scenarios.md`: ricerca + refactor in due passaggi con filtro del coordinator.
+### Cambiato
+- SKILL.md §10 distingue esplicitamente "tra agenti diversi" da "tra sub-agent dello stesso coordinator".
+### Note di migrazione
+- comportamento osservabile: per task multi-step (es. "cerca X poi proponi refactor") il coordinator orchestra due sub-agent passando solo le parti utili del primo al secondo, anziché far ripetere il lavoro.
+
 ## v0.4.0 — 2026-05-02
 ### Aggiunto
 - selezione automatica del modello per i sub-agent: tabella decisionale haiku/sonnet/opus in SKILL.md §3, ripresa in `references/specialist-agents.md`. Quando Claude lancia un `Agent`, il parametro `model` viene scelto in base al tipo di task (ricerca → haiku, review/implementazione → sonnet, audit/security/architettura → opus).
