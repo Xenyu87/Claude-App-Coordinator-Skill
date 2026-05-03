@@ -150,7 +150,29 @@ Quando proponi una modifica alla skill, chiedi: *"verifica che gli scenari di te
 
 ---
 
-## Scenario 9 — Output corto
+## Scenario 9 — Fast path per modifiche piccole
+
+**Tu dici:** "in `src/components/Button.tsx` cambia il colore del bordo da grigio a nero"
+
+**La skill deve:**
+- riconoscere fast path (1 file noto, scope chiaro, niente auth/dati/deploy)
+- **NON** aprire alcun reference (no `task-routing.md`, no `budget-modes.md`, no nient'altro)
+- **NON** spawnare `Agent`
+- **NON** chiedere conferme
+- modificare il file e basta
+- output 2 righe: `Fatto: ... / Verifica: ...`
+
+**Bandiera rossa:**
+- vedo Claude leggere `references/*.md` per una modifica banale
+- vedo un sub-agent partire
+- output di 10+ righe per cambiare un colore
+- "ti spiego perché ho scelto nero invece di grigio scuro" non richiesto
+
+Questo scenario è il più importante per il consumo di token.
+
+---
+
+## Scenario 10 — Output corto
 
 **Tu dici:** "aggiungi un punto e virgola alla fine della riga 12"
 

@@ -42,13 +42,15 @@ Niente "fai del tuo meglio". Niente "in base ai risultati, implementa X" — la 
 
 ## Modello del subagent
 
-Imposta sempre il parametro `model` del tool `Agent` in base al tipo di task. Vedi tabella in SKILL.md §3:
+Imposta sempre il parametro `model` del tool `Agent` in base al tipo di task. Tabella decisionale (in dubbio scegli il più piccolo):
 
-- `haiku` — ricerca cross-file, summary, lookup
-- `sonnet` — code review, implementazione singolo file, debug 2-3 file
-- `opus` — architettura, refactor cross-modulo, security/auth, audit ampi
+| Tipo di task del sub-agent | `model` |
+| --- | --- |
+| ricerca cross-file (`Explore`), summary, riformulazione, formato, lookup | `haiku` |
+| code review (`code-reviewer`), implementazione singolo file, debug 2-3 file, doc-writer | `sonnet` |
+| architettura (`architect`), `Plan` per task ampi, refactor cross-modulo, security/auth, audit ampio, migrazione dati | `opus` |
 
-In dubbio scegli il più piccolo. Se il main agent è già Opus e il sub-task è leggero, `haiku` riduce il costo senza perdere qualità.
+Se il main agent è già Opus e il sub-task è leggero, `haiku` riduce il costo senza perdere qualità.
 
 ## Background vs foreground
 

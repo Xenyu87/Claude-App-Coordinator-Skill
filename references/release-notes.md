@@ -20,6 +20,16 @@ Note di rilascio sul comportamento osservabile della skill. Pensate per chi la u
 ### Aggiunto
 - prima release: skill con 19 reference, validator, file `AI_*.md` per handoff multi-agente.
 
+## v0.6.0 — 2026-05-03
+### Aggiunto
+- §0 "Fast path" in SKILL.md: per modifiche locali (1-3 file noti, niente auth/dati/deploy) la skill salta tutto il protocollo (no reference, no `Agent`, output 2 righe).
+- scenario 9 in `evaluations/scenarios.md` dedicato alla fast path.
+### Cambiato
+- frontmatter `description` esplicita i casi in cui NON attivare (fix di stringa, rename locale, modifica isolata, domande concettuali).
+- SKILL.md compattato da 307 a ~190 righe; tabella sub-agent spostata in `specialist-agents.md` (single source of truth).
+### Note di migrazione
+- per task piccoli la skill consuma molti meno token (no reference né spawn). Per task non triviali, comportamento invariato. Motivazione: feedback utente — modifica semplice consumava 40% del budget in 5 ore.
+
 ## v0.5.0 — 2026-05-02
 ### Aggiunto
 - `recipes/` con 5 ricette pronte (landing-page, crud-with-auth, data-dashboard, content-site, bot): scheletro modulare con stack + struttura + primi passi + deploy + costi + punti di personalizzazione.

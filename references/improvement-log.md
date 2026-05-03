@@ -48,6 +48,11 @@ Diario sintetico delle modifiche alla skill. Una riga per modifica.
 - 2026-05-02 — references/deploy-paths.md + assets/scripts/deploy-{vercel,netlify,railway}.sh — percorsi e script di deploy concreti — coloma il gap "come metto l'app online"
 - 2026-05-02 — references/visual-first-testing.md — protocollo URL/azione/atteso/segnalazioni codificato — utente non programmer non legge stack trace
 - 2026-05-02 — SKILL.md §12 — aggiunti Step 0 (riconosci ricetta) / Step 2 (deploy presto) / Step 3 (test visivo) — workflow nuova app ora copre l'intero ciclo "idea → online"
+- 2026-05-03 — SKILL.md frontmatter description — esplicito "NON attivare per fix di una stringa, rename locale, modifica isolata di 1 file noto" — utente segnala 40% del budget token per modifica semplice; description troppo "pushy" causava over-trigger
+- 2026-05-03 — SKILL.md §0 — nuova sezione "Fast path" come prima sezione operativa: per modifiche locali (1-3 file noti, scope chiaro, no auth/dati/deploy) → no reference, no Agent, output 2 righe — taglia il costo fisso per task semplici
+- 2026-05-03 — SKILL.md — compattato da 307 a ~190 righe (Working loop denso, Selezione modello tabella spostata in specialist-agents.md, Handoff lista file compattata, Definition of Done 6→3 bullet) — riduce il costo di caricamento ad ogni attivazione
+- 2026-05-03 — references/specialist-agents.md — accolta tabella decisionale model haiku/sonnet/opus precedentemente in SKILL.md — single source of truth
+- 2026-05-03 — evaluations/scenarios.md — scenario 9 per coprire la fast path — è il più importante per il consumo token
 
 ## Regole
 
